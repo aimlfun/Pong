@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Console harness: runs the game's AI code (vision, simulator, network, aiming) with no form, for measurement.
+    It compiles the game's own source files, so there is no copy to drift. Usage:  dotnet run -c Release (then one of: vision, train, aim, all)
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Pong</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="..\Pong4.6\**\*.cs" Exclude="..\Pong4.6\Program.cs;..\Pong4.6\obj\**;..\Pong4.6\bin\**" />
+    <EmbeddedResource Include="..\Pong4.6\Form1.resx" LogicalName="Pong.FormPong.resources" />
+  </ItemGroup>
+</Project>
